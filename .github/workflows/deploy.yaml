@@ -14,7 +14,7 @@ env:
   BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GODOT_VERSION: "4.2.2"
-  ITCH_PROJECT_NAME: "gametemplate"
+  ITCH_PROJECT_NAME: "project-boost"
   ITCH_USERNAME: "comigor"
 
 jobs:
