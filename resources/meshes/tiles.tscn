@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8l8lrii8nmv5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_86p28"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmajj"]
+albedo_color = Color(0.79, 0.528115, 0.4819, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_escve"]
+data = PackedVector3Array(-2.5, 2.5, 2.5, 2.5, 2.5, 2.5, -2.5, -2.5, 2.5, 2.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, 2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, -2.5, -2.5, 2.5, 2.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, 2.5, 2.5, -2.5, 2.5, 2.5, 2.5, 2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, -2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ar0ux"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqpod"]
+albedo_color = Color(0.92219, 0.260497, 0.427926, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_85548"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Tiles" type="Node3D"]
+
+[node name="OuterBox" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_86p28")
+surface_material_override/0 = SubResource("StandardMaterial3D_pmajj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OuterBox"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuterBox/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_escve")
+
+[node name="InnerBox" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ar0ux")
+surface_material_override/0 = SubResource("StandardMaterial3D_mqpod")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="InnerBox"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InnerBox/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_85548")
