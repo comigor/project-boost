@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqjxqcaffqw4d"]
+[gd_scene load_steps=9 format=3 uid="uid://dqjxqcaffqw4d"]
 
-[ext_resource type="PackedScene" uid="uid://bamd0bwuqsq6r" path="res://src/player.tscn" id="1_ww536"]
+[ext_resource type="Script" path="res://src/landing_pad.gd" id="1_dpyt0"]
+[ext_resource type="PackedScene" uid="uid://bamd0bwuqsq6r" path="res://src/player.tscn" id="2_jjufx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hdetf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -75,6 +76,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.25, 0)
 use_collision = true
 size = Vector3(4, 0.5, 4)
 material = SubResource("StandardMaterial3D_15w3x")
+script = ExtResource("1_dpyt0")
+next_level_scene = "res://levels/level_2.tscn"
 
-[node name="Player" parent="." instance=ExtResource("1_ww536")]
+[node name="Player" parent="." instance=ExtResource("2_jjufx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1.5, 0)

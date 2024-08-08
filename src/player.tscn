@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bamd0bwuqsq6r"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_uj8y1"]
+[ext_resource type="Script" path="res://src/player.gd" id="1_gk3t6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sdfm8"]
 
@@ -12,7 +12,7 @@ max_contacts_reported = 10
 contact_monitor = true
 linear_damp = 1.0
 angular_damp = 3.0
-script = ExtResource("1_uj8y1")
+script = ExtResource("1_gk3t6")
 
 [node name="Top" type="CSGPolygon3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

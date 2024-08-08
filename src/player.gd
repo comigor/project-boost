@@ -18,6 +18,14 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
     if body.is_in_group("victory_collision"):
-        print("you win!")
+        complete_level(body)
     elif body.is_in_group("defeat_collision"):
-        print("game over")
+        crash_sequence()
+
+
+func complete_level(body: LandingPad) -> void:
+    get_tree().change_scene_to_file(body.next_level_scene)
+
+
+func crash_sequence() -> void:
+    get_tree().reload_current_scene()
