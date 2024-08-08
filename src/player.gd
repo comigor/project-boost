@@ -6,6 +6,8 @@ class_name Player extends RigidBody3D
 ## Rocket torque (how much force is applied to "turn" the rocket).
 @export_range(100.0, 300.0) var torque: float = 200.0
 
+var is_transitioning = false
+
 
 func _process(delta: float) -> void:
     if Input.is_action_pressed("boost"):
@@ -17,15 +19,25 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-    if body.is_in_group("victory_collision"):
+    if body.is_in_group("victory"):
         complete_level(body)
-    elif body.is_in_group("defeat_collision"):
+    elif body.is_in_group("hazard"):
         crash_sequence()
 
 
 func complete_level(body: LandingPad) -> void:
-    get_tree().change_scene_to_file(body.next_level_scene)
+    if !is_transitioning:
+        is_transitioning = true
+        set_process(false)
+        var tween = create_tween()
+        tween.tween_interval(1.5)
+        tween.tween_callback(func(): get_tree().change_scene_to_file(body.next_level_scene))
 
 
 func crash_sequence() -> void:
-    get_tree().reload_current_scene()
+    if !is_transitioning:
+        is_transitioning = true
+        set_process(false)
+        var tween = create_tween()
+        tween.tween_interval(1.5)
+        tween.tween_callback(get_tree().reload_current_scene)

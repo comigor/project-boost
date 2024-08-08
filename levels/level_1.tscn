@@ -82,7 +82,7 @@ item/1/navigation_layers = 1
 item/1/preview = SubResource("ImageTexture_fc1mj")
 metadata/_editor_source_scene = "res://resources/meshes/tiles.tscn"
 
-[node name="Level1" type="Node3D"]
+[node name="Level" type="Node3D"]
 
 [node name="Settings" type="Node3D" parent="."]
 
@@ -102,7 +102,7 @@ use_collision = true
 size = Vector3(4, 0.5, 4)
 material = SubResource("StandardMaterial3D_jrelb")
 
-[node name="LandingPad" type="CSGBox3D" parent="." groups=["victory_collision"]]
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["victory"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.25, 0)
 use_collision = true
 size = Vector3(4, 0.5, 4)
@@ -113,7 +113,7 @@ next_level_scene = "res://levels/level_2.tscn"
 [node name="Player" parent="." instance=ExtResource("2_jjufx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1.5, 0)
 
-[node name="GridMap" type="GridMap" parent="." groups=["defeat_collision"]]
+[node name="GridMap" type="GridMap" parent="." groups=["hazard"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0.5)
 mesh_library = SubResource("MeshLibrary_qvo5m")
 cell_size = Vector3(1, 1, 1)
