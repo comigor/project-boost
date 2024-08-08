@@ -8,6 +8,8 @@
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
+max_contacts_reported = 10
+contact_monitor = true
 linear_damp = 1.0
 angular_damp = 3.0
 script = ExtResource("1_uj8y1")
@@ -44,3 +46,5 @@ depth = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_sdfm8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

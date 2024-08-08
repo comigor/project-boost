@@ -32,16 +32,36 @@ albedo_color = Color(0.178847, 0.655427, 0.423956, 1)
 environment = SubResource("Environment_htcpa")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Settings"]
-transform = Transform3D(-0.866025, -0.492404, -0.0868241, 0, -0.173648, 0.984808, -0.5, 0.852868, 0.150384, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1.50231, 0)
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="Settings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 12)
 
-[node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+[node name="Terrain" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Terrain" groups=["defeat_collision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 use_collision = true
-size = Vector3(30, 8, 5)
+size = Vector3(30, 2, 5)
+material = SubResource("StandardMaterial3D_y8wm8")
+
+[node name="Ceiling" type="CSGBox3D" parent="Terrain" groups=["defeat_collision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+use_collision = true
+size = Vector3(30, 2, 5)
+material = SubResource("StandardMaterial3D_y8wm8")
+
+[node name="LeftWall" type="CSGBox3D" parent="Terrain" groups=["defeat_collision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 7, 0)
+use_collision = true
+size = Vector3(2, 18, 5)
+material = SubResource("StandardMaterial3D_y8wm8")
+
+[node name="RightWall" type="CSGBox3D" parent="Terrain" groups=["defeat_collision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 7, 0)
+use_collision = true
+size = Vector3(2, 18, 5)
 material = SubResource("StandardMaterial3D_y8wm8")
 
 [node name="LaunchPad" type="CSGBox3D" parent="."]
@@ -50,7 +70,7 @@ use_collision = true
 size = Vector3(4, 0.5, 4)
 material = SubResource("StandardMaterial3D_jrelb")
 
-[node name="LandingPad" type="CSGBox3D" parent="."]
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["victory_collision"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.25, 0)
 use_collision = true
 size = Vector3(4, 0.5, 4)
