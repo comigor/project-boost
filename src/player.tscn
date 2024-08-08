@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bamd0bwuqsq6r"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_uj8y1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sdfm8"]
+
+[node name="Player" type="RigidBody3D"]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+script = ExtResource("1_uj8y1")
+
+[node name="Top" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+polygon = PackedVector2Array(0, 0, 0, 0.5, 0.5, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 32
+
+[node name="Cilinder" type="CSGCylinder3D" parent="."]
+sides = 32
+
+[node name="Flap1" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -1, 0.05)
+polygon = PackedVector2Array(0, 0, 0, 1, 0.5, 0)
+depth = 0.1
+
+[node name="Flap2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, -1, -0.45)
+polygon = PackedVector2Array(0, 0, 0, 1, 0.5, 0)
+depth = 0.1
+
+[node name="Flap3" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.45, -1, -0.05)
+polygon = PackedVector2Array(0, 0, 0, 1, 0.5, 0)
+depth = 0.1
+
+[node name="Flap4" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.045, -1, 0.45)
+polygon = PackedVector2Array(0, 0, 0, 1, 0.5, 0)
+depth = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_sdfm8")
